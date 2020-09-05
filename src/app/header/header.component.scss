@@ -1,0 +1,36 @@
+.item1 { grid-area: header; 
+background-color: black;
+}
+a{
+  color: black;
+
+}
+
+.item1 .home {
+    float: center;
+}
+
+.item1 .login  {
+    float: left;
+    padding-left: 10px;
+}
+
+.item1 .registration  {
+    float: right;
+    padding-right: 5px;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-areas:
+    'header header header header header header';
+  /* grid-gap: 100%; */
+  padding: 10px;
+}
+
+.grid-container > div {
+  background-color:darksalmon;
+  text-align: center;
+  padding: 20px 0;
+  font-size: 30px;
+}
