@@ -13,119 +13,16 @@
       "category": "Tamil"
     }
   ],
-  "login": [
-    {
-      "id": "1",
-      "email": "prakash0544@gmail.com",
-      "password": "prakash123"
-    },
-    {
-      "email": "prakash@gmail.com",
-      "password": "test",
-      "id": "OWdcEre"
-    },
-    {
-      "email": "vb@gmail.com",
-      "password": "test",
-      "id": "zjFjse7"
-    },
-    {
-      "email": "ab@gmail.com",
-      "password": "test",
-      "id": "S7VcGXR"
-    },
-    {
-      "email": "prakash0544@gmail.com",
-      "password": "raju",
-      "id": "WBotsdJ"
-    },
-    {
-      "email": "prakash@gmail.com",
-      "password": "test",
-      "id": "5p_cXTn"
-    },
-    {
-      "email": "p@gmail.com",
-      "password": "test",
-      "id": "wHvDr-S"
-    },
-    {
-      "email": "test@test.com",
-      "password": "test",
-      "id": "32-Clg1"
-    },
-    {
-      "email": "prakash0544@gmail.com",
-      "password": "eeed",
-      "id": "qeywXld"
-    },
-    {
-      "email": "karthika@gmail.com",
-      "password": "123",
-      "id": "Skgp66n"
-    },
-    {
-      "email": "karthika@gmail.com",
-      "password": "123",
-      "id": "hOPKQxB"
-    },
-    {
-      "email": "kkkk@kkk.com",
-      "password": "12344",
-      "id": "r6M-3yf"
-    }
-  ],
   "register": [
-    {
-      "id": "1",
-      "username": "prakash",
-      "email": "prakah0544@gmail.com",
-      "password": "prakash123"
-    },
-    {
-      "email": "prakash@gmail.com",
-      "password": "test",
-      "id": "yisO5QV"
-    },
-    {
-      "email": "vb@gmail.com",
-      "password": "test",
-      "id": "uXKiIpl"
-    },
-    {
-      "email": "ab@gmail.com",
-      "password": "test",
-      "id": "oO0Ocw8"
-    },
-    {
-      "email": "prakash0544@gmail.com",
-      "password": "test",
-      "id": "l_GD0eF"
-    },
-    {
-      "email": "a@gmail.com",
-      "password": "test",
-      "id": "EyKUuOj"
-    },
-    {
-      "email": "a@gmail.com",
-      "password": "test",
-      "id": "_zmXYLf"
-    },
-    {
-      "email": "test@test.com",
-      "password": "aasd",
-      "id": "zEMsthB"
-    },
     {
       "email": "karthika@gmail.com",
       "password": "123",
       "id": "3Utweg9"
     },
     {
-      "email": "karthika@gmail.com",
+      "email": "kkkk@kkk.com",
       "password": "123",
-      "id": "6UY1KR6"
+      "id": "2gPeksz"
     }
   ]
 }

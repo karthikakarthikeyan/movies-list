@@ -17,9 +17,15 @@ export class AuthService {
   }
 
   logIn(email: string, password: string): Observable<any> {
-    const url = `${this.BASE_URL}/login`;
-    return this.http.post<User>(url, {email, password});
+    const url = `${this.BASE_URL}/register`;
+    // return this.http.post<User>(url, {email, password});
+    return this.http.get<User>(url,   {
+      params: {
+        email: email,
+        password: password
+      }});
   }
+  
 
   signUp(email: string, password: string): Observable<User> {
     const url = `${this.BASE_URL}/register`; 

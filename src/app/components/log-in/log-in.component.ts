@@ -4,7 +4,9 @@ import { Observable } from 'rxjs';
 
 import { User } from '../../models/user';
 import { AppState , selectAuthState } from '../../store/app.states';
-import { LogIn } from '../../store/actions/auth.actions';;
+import { LogIn } from '../../store/actions/auth.actions';
+import { AuthService } from '../../services/auth.service';
+
 
 @Component({
   selector: 'app-log-in',
@@ -16,8 +18,10 @@ export class LogInComponent implements OnInit {
   user: User = new User();
   getState: Observable<any>;
   errorMessage: string | null;
+  public incorrectError = false;
 
-  constructor(private store: Store<AppState>) { 
+
+  constructor(private store: Store<AppState>, private AuthService: AuthService) { 
     this.getState = this.store.select(selectAuthState);
   }
 
@@ -32,7 +36,13 @@ export class LogInComponent implements OnInit {
       email: this.user.email,
       password: this.user.password
     };
-    this.store.dispatch(new LogIn(payload));
+    this.AuthService.logIn(this.user.email,this.user.password).subscribe((response) => {
+      if(response.length >= 1){
+        this.store.dispatch(new LogIn(payload));
+      }else{
+        this.incorrectError = true;
+      }
+    });
   }
 
 }
