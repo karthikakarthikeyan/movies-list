@@ -4,14 +4,13 @@
     display: grid;
     grid-template-areas:
       'header header header header header header';
-    /* grid-gap: 100%; */
-    //background-color: #21f379;
     padding: 10px;
   }
   
   .grid-container > div {
-    background-color: #ffffffcc;
     text-align: center;
     padding: 20px 0;
     font-size: 30px;
   }
+
+ 

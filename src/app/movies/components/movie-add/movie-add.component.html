@@ -1,0 +1,37 @@
+<div class="movie-add">
+    <div class="add-header">
+        <h4 style="text-align: left;">Add Movies</h4>
+    </div>
+  
+    <form [formGroup]="movieForm" (ngSubmit)="submitForm()" novalidate>
+        <div class="form-group">
+            <label class="labels-add">Title</label>
+            <input type="text" formControlName="title" class="form-control" maxlength="20" >
+            <span class="text-danger"
+ *ngIf="(addFormControl.title.touched || submitted) && addFormControl.title.errors?.required">
+                                Title is required
+                            </span>
+        </div>
+        <div class="form-group">
+            <label class="labels-add">Category</label>
+            <input type="text" formControlName="category" class="form-control">
+            <span class="text-danger"
+            *ngIf="(addFormControl.category.touched || submitted) && addFormControl.category.errors?.required">
+            category is required
+                                       </span>
+        </div>
+        <div class="form-group">
+            <label class="labels-add">Description</label>
+            <textarea class="form-control" formControlName="description" rows="3" maxlength="50"></textarea>
+            <span class="text-danger"
+            *ngIf="(addFormControl.description.touched || submitted) && addFormControl.description.errors?.required">
+            description is required
+        </span>
+        </div>
+        <div class="form-group">
+        <button class="button-add" aria-label="Save the Movie">Submit</button>&nbsp;
+        <a href="#" routerLink="/movie" class="button-add" aria-label="Back to Movie Page">Back</a>
+        </div>
+
+    </form>
+</div>

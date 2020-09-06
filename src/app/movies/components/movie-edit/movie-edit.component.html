@@ -1,0 +1,23 @@
+<div class="movie-edit">
+    <h4 style="text-align: left;">Edit Movie</h4>
+    <form [formGroup]="editform" (ngSubmit)="submit()">
+
+        <div class="form-group">
+            <label class="labels-edit">Title</label>
+            <input type="text"  name="title" id="title" formControlName="title" class="form-control" maxlength="20">
+        </div>
+
+        <div class="form-group">
+            <label class="labels-edit">Category</label>
+            <input type="text" name="category" id="category" formControlName="category" class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label class="labels-edit">Description</label>
+            <textarea class="form-control" name="description" id="description" formControlName="description" rows="3" maxlength="50"></textarea>
+        </div>
+        
+        <button class="button-edit" type="submit" [disabled]="!editform.valid" aria-label="Save the Edit Movie">Update</button>&nbsp;
+        <a href="#" routerLink="/movie" class="button-edit" aria-label="Back to Movie Page">Back</a>
+    </form>
+</div>

@@ -32,10 +32,8 @@ ofType(AuthActionTypes.LOGIN)).pipe(
     map((action: LogIn) => action.payload)).pipe(switchMap(payload => {
     return this.authService.logIn(payload.email, payload.password).pipe(
         map((user) => {
-        console.log(user);
         return new LogInSuccess({token: user.token, email: payload.email});
       })).pipe(catchError((error) => {
-        console.log(error);
         return of(new LogInFailure({ error: error }));
       }));
   }));
@@ -45,7 +43,7 @@ ofType(AuthActionTypes.LOGIN)).pipe(
   ofType(AuthActionTypes.LOGIN_SUCCESS),
   tap((user) => {
       localStorage.setItem('token', user.payload.token);
-      this.router.navigateByUrl('/');
+      this.router.navigateByUrl('/movie');
   })
 );
 
@@ -61,10 +59,8 @@ SignUp: Observable<any> = this.actions.pipe(ofType(AuthActionTypes.SIGNUP)).pipe
   switchMap(payload => {
     return this.authService.signUp(payload.email, payload.password).pipe(
       map((user) => {
-        console.log(user);
         return new SignUpSuccess({token: user.token, email: payload.email});
       })).pipe(catchError((error) => {
-        console.log(error);
         return of(new SignUpFailure({ error: error }));
       }));
   }));
@@ -75,7 +71,7 @@ SignUpSuccess: Observable<any> = this.actions.pipe(
   ofType(AuthActionTypes.SIGNUP_SUCCESS),
   tap((user) => {
     localStorage.setItem('token', user.payload.token);
-    this.router.navigateByUrl('/');
+    this.router.navigateByUrl('/movie');
   })
 );
 

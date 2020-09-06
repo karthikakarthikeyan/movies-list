@@ -1,3 +1,7 @@
+
+
+
+
 .item1 { grid-area: header; 
 background-color: black;
 }
@@ -9,6 +13,8 @@ a{
 .item1 .home {
     float: center;
 }
+
+
 
 .item1 .login  {
     float: left;
@@ -33,4 +39,9 @@ a{
   text-align: center;
   padding: 20px 0;
   font-size: 30px;
+}
+
+.logout{
+  float:right;
+  cursor: pointer;
 }

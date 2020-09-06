@@ -6,6 +6,7 @@ import { User } from '../../models/user';
 import { AppState , selectAuthState } from '../../store/app.states';
 import { LogIn } from '../../store/actions/auth.actions';
 import { AuthService } from '../../services/auth.service';
+import { ThemeService } from '../../services/theme.service';
 
 
 @Component({
@@ -14,14 +15,14 @@ import { AuthService } from '../../services/auth.service';
   styleUrls: ['./log-in.component.scss']
 })
 export class LogInComponent implements OnInit {
-
+  theme = 'light';
   user: User = new User();
   getState: Observable<any>;
   errorMessage: string | null;
   public incorrectError = false;
 
 
-  constructor(private store: Store<AppState>, private AuthService: AuthService) { 
+  constructor(private store: Store<AppState>, private AuthService: AuthService, public themeService: ThemeService) { 
     this.getState = this.store.select(selectAuthState);
   }
 
@@ -43,6 +44,14 @@ export class LogInComponent implements OnInit {
         this.incorrectError = true;
       }
     });
+  }
+
+  changeTheme(){
+    if (this.theme === 'light'){
+      this.themeService.setLightTheme();
+    } else{
+      this.themeService.setDarkTheme();
+    }
   }
 
 }

@@ -1,16 +1,34 @@
 {
   "movies": [
     {
-      "id": 1,
-      "title": "Harry Potter",
-      "description": "English movie",
-      "category": "English"
-    },
-    {
       "id": 2,
       "title": "Friends",
       "description": "Tamil Movie",
-      "category": "Tamil"
+      "category": "Tamil1"
+    },
+    {
+      "title": "singam",
+      "description": "singam",
+      "category": "singam",
+      "id": 3
+    },
+    {
+      "title": "",
+      "description": "",
+      "category": "",
+      "id": 4
+    },
+    {
+      "title": "s",
+      "description": "s",
+      "category": "s",
+      "id": 5
+    },
+    {
+      "id": 6,
+      "title": "tttt",
+      "description": "tttt1",
+      "category": "tttt"
     }
   ],
   "register": [
@@ -23,6 +41,32 @@
       "email": "kkkk@kkk.com",
       "password": "123",
       "id": "2gPeksz"
+    },
+    {
+      "email": "karthika@gmail.com",
+      "password": "123",
+      "id": "BpQBHp1"
+    },
+    {
+      "email": "asss@dd.com",
+      "password": "123",
+      "id": "2UMOfZW"
+    },
+    {
+      "email": "ddd@gm.com",
+      "password": "123",
+      "id": "CUsEIpA"
+    },
+    {
+      "email": "xxx@gmail.com",
+      "password": "123",
+      "id": "99M63lE"
+    },
+    {
+      "email": "karthika@gmail.com",
+      "password": "123",
+      "id": "T8HJcar"
     }
-  ]
+  ],
+  "courses": []
 }

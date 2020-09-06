@@ -6,10 +6,18 @@
 
 <div class="grid-container">
   <div class="item1">
-      <a class="home" routerLink="/home">Movies</a>
+      
+      <a class="home" routerLink="/movie">Movies</a>
       <!-- <a class="registration" routerLink="/sign-up">Register</a> -->
       <a class="login" routerLink="/log-in">Login</a>   
+     <a (click)='logOut()' class="logout" *ngIf="isloggedin">log out</a>
+      
+     
+
   </div>
 </div>
+
+
 </body>
 </html>
+
