@@ -1,5 +1,5 @@
 import { User } from '../../models/user';
-import { AuthActionTypes, All } from '../actions/auth.actions';
+import { AuthActionTypes, AuthAction } from '../actions/auth.actions';
 
 
 export interface State {
@@ -14,7 +14,7 @@ export const initialState: State = {
     errorMessage: null
   };
 
-  export function reducer(state = initialState, action: All): State {
+  export function reducer(state = initialState, action: AuthAction): State {
     switch (action.type) {
       case AuthActionTypes.LOGIN_SUCCESS: {
         return {

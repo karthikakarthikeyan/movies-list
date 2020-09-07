@@ -1,5 +1,5 @@
 import { Movies } from "../models/movies";
-import { LIST_MOVIES, LIST_DATA_SUCCESS,MoviesActions }  from './movie.action';
+import { LIST_MOVIES, LIST_DATA_SUCCESS,MoviesActions,ADD_MOVIES,UPDATE_MOVIES }  from './movie.action';
 
 
 export interface State {
@@ -30,6 +30,16 @@ export function movieReducer(
           message: null
         };
       }
+      case ADD_MOVIES: {
+        return {
+          ...state
+        };
+        }
+        case UPDATE_MOVIES: {
+          return {
+            ...state,
+          };
+        }
      default:
       return state;
   }

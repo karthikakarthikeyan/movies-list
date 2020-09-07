@@ -45,11 +45,4 @@ export class LogInFailure implements Action {
     readonly type = AuthActionTypes.LOGOUT;
   }
   
-export type All =
-  | LogIn
-  | LogInSuccess
-  | LogInFailure
-  | SignUp
-  | SignUpSuccess
-  | SignUpFailure
-  | LogOut;
+  export type AuthAction = LogIn | LogInSuccess | LogInFailure | SignUp | SignUpSuccess | SignUpFailure| LogOut;

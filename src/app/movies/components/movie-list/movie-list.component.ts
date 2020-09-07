@@ -27,11 +27,7 @@ export class MovieListComponent implements OnInit {
     }
 
   ngOnInit() {
-    // this.store.dispatch(new ListMovies());
-    // this.store.subscribe(data => {
-    //   console.log('received data from store...', data);
-    //   this.movies = data.movie.movies;
-    // });
+
     if (this.authService.getToken()) {
       this.isloggedin = true;
     }

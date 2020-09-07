@@ -4,31 +4,19 @@
       "id": 2,
       "title": "Friends",
       "description": "Tamil Movie",
-      "category": "Tamil1"
+      "category": "Tamil"
     },
     {
+      "id": 3,
       "title": "singam",
-      "description": "singam",
-      "category": "singam",
-      "id": 3
+      "description": "Tamil",
+      "category": "Tamil"
     },
     {
-      "title": "",
-      "description": "",
-      "category": "",
+      "title": "Harry Potter",
+      "description": "english",
+      "category": "English",
       "id": 4
-    },
-    {
-      "title": "s",
-      "description": "s",
-      "category": "s",
-      "id": 5
-    },
-    {
-      "id": 6,
-      "title": "tttt",
-      "description": "tttt1",
-      "category": "tttt"
     }
   ],
   "register": [
@@ -66,6 +54,11 @@
       "email": "karthika@gmail.com",
       "password": "123",
       "id": "T8HJcar"
+    },
+    {
+      "email": "karthikeyan@g.com",
+      "password": "12",
+      "id": "IBWx3LD"
     }
   ],
   "courses": []

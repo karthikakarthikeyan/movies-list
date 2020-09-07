@@ -6,18 +6,22 @@
 
 <div class="grid-container">
   <div class="item1">
-      
-      <a class="home" routerLink="/movie">Movies</a>
-      <!-- <a class="registration" routerLink="/sign-up">Register</a> -->
+  <div *ngIf="isAuthenticated; then doSomething; else doSomethingElse;"></div>
+    <ng-template #doSomething>
+        
+        <div>
+          <label>Logged User : <em>{{user.email}}!</em></label>
+            <a class="logoutBtn" (click)="logOut()">Log out</a>
+        </div>
+    </ng-template>
+    <ng-template #doSomethingElse>
+      <a class="home" routerLink="/movie">Movie</a>
+      <a class="registration" routerLink="/sign-up">Register</a>
       <a class="login" routerLink="/log-in">Login</a>   
-     <a (click)='logOut()' class="logout" *ngIf="isloggedin">log out</a>
-      
-     
-
-  </div>
+    </ng-template>
+  
 </div>
-
-
+</div>
 </body>
 </html>
 
