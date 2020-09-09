@@ -8,7 +8,7 @@ import { IMovies } from './../movies';
 
 @Injectable()
 export class AuthService {
-  private BASE_URL = 'http://localhost:3000';
+  public BASE_URL = 'http://localhost:3000';
 
   constructor(private http: HttpClient) {}
 

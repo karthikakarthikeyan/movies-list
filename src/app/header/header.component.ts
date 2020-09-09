@@ -17,7 +17,6 @@ import { ThemeService } from '../services/theme.service';
 })
 export class HeaderComponent implements OnInit {
   theme = 'light';
-  isloggedin = false;
   isAuthenticated: false;
     user = null;
   errorMessage = null;
