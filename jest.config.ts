@@ -2,7 +2,7 @@ module.exports = {
     preset: "jest-preset-angular",
     roots: ["./src"],
     testMatch: ["**/+(*.)+(spec).+(ts)"],
-    setupFilesAfterEnv: ["<rootDir>/setup-jest.ts"],
+    setupFilesAfterEnv: ["<rootDir>/setupJest.ts"],
     transform: {
         "^.+\\.(ts|js|html)$": "ts-jest",
     },

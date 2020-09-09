@@ -5,7 +5,9 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "test": "ng test",
+    "test": "jest",
+    "test-watch": "jest --watchAll --coverage --runInBand --detectOpenHandles",
+    "test:cov": "jest --coverage",
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
@@ -23,6 +25,7 @@
     "@ngrx/entity": "^10.0.0",
     "@ngrx/store": "^10.0.0",
     "bootstrap": "^4.1.0",
+    "jest-html-reporters": "^2.0.3",
     "rxjs": "~6.5.5",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.3"

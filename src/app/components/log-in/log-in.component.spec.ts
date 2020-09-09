@@ -1,6 +1,14 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LogInComponent } from './log-in.component';
+import { LogInComponent } from './log-in.component';    
+
+import { CUSTOM_ELEMENTS_SCHEMA } from'@angular/core';
+import { RouterTestingModule } from'@angular/router/testing';
+import { provideMockStore } from'@ngrx/store/testing';
+import { FormsModule, ReactiveFormsModule } from'@angular/forms';
+import { HttpClientTestingModule } from'@angular/common/http/testing';
+
+
 
 describe('LogInComponent', () => {
   let component: LogInComponent;
@@ -8,7 +16,15 @@ describe('LogInComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ LogInComponent ]
+      declarations: [ LogInComponent ],
+      imports: [
+        RouterTestingModule,
+        FormsModule,
+        ReactiveFormsModule,
+        HttpClientTestingModule
+      ],
+      providers: [provideMockStore()],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA]
     })
     .compileComponents();
   }));
@@ -22,4 +38,5 @@ describe('LogInComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
 });
