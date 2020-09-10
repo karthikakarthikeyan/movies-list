@@ -40,17 +40,9 @@ describe('AuthService', () => {
     expect(service.BASE_URL).toContain('http://localhost:3000');
   });
 
-  // it(`should fetch login Details as an Observable`, async(inject([HttpTestingController, AuthService],
-  //   (httpClient: HttpTestingController, authService: AuthService) => {
- 
-  //     authService.logIn().subscribe((sports: any) => {
-  //       expect(sports.length).toBeGreaterThan(0);
-  //     });
- 
-  //     const req = httpMock.expectOne(authService.BASE_URL + '/log-in');
-  //     expect(req.request.method).toBe('GET');
-  //     req.flush(loginDummyPosts);
-  //     httpMock.verify();
-  //   })));
-
+  
+  it('Get token should be caled', () => {
+    spyOn(service, 'getToken').and.returnValue('abc');
+    expect(service.getToken()).toEqual('abc');
+  });
 });
