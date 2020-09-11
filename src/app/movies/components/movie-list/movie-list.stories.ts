@@ -2,12 +2,12 @@ import { Meta, Story } from '@storybook/angular';
 import { RouterTestingModule } from '@angular/router/testing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { provideMockStore } from '@ngrx/store/testing';
- 
+
 import { MovieListComponent } from './movie-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthService } from '../../../services/auth.service';
 
- 
+
 export default {
   title: 'Movie',
   component: MovieListComponent,
@@ -23,25 +23,19 @@ const Template: Story<MovieListComponent> = (args: MovieListComponent) => ({
     imports: [
       RouterTestingModule.withRoutes([]),
       FormsModule,
-       HttpClientModule, 
+       HttpClientModule,
       ReactiveFormsModule,
     ],
     declarations: [MovieListComponent],
-    providers: [provideMockStore(),AuthService],
+    providers: [provideMockStore(), AuthService],
   },
   props: args,
 });
- 
-export const list = Template.bind({});
-list.args = {
-  viewLogin : true,
-};
- 
-// export const SignUp = Template.bind({});
-// SignUp.args = {
-//   viewLogin : true,
-// };
 
+export const listmovie = Template.bind({});
+listmovie.args = {
+  listmovie : true,
+};
 
 
 

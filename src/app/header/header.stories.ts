@@ -26,20 +26,12 @@ const Template: Story<HeaderComponent> = (args: HeaderComponent) => ({
       ReactiveFormsModule,
     ],
     declarations: [HeaderComponent],
-    providers: [provideMockStore(),AuthService],
+    providers: [provideMockStore(), AuthService],
   },
   props: args,
 });
- 
+
 export const Header = Template.bind({});
 Header.args = {
-  viewLogin : true,
+  viewHeader : true,
 };
- 
-// export const SignUp = Template.bind({});
-// SignUp.args = {
-//   viewLogin : true,
-// };
-
-
- 

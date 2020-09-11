@@ -2776,17 +2776,17 @@
                 "name": "environment",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/environments/environment.prod.ts",
+                "file": "src/environments/environment.ts",
                 "type": "object",
-                "defaultValue": "{\n  production: true\n}"
+                "defaultValue": "{\n  production: false\n}"
             },
             {
                 "name": "environment",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/environments/environment.ts",
+                "file": "src/environments/environment.prod.ts",
                 "type": "object",
-                "defaultValue": "{\n  production: false\n}"
+                "defaultValue": "{\n  production: true\n}"
             },
             {
                 "name": "Header",
@@ -2813,20 +2813,20 @@
                 "defaultValue": "{\n    isAuthenticated: false,\n    user: null,\n    errorMessage: null\n  }"
             },
             {
+                "name": "LandingPage",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/components/landing/landing.stories.ts",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
                 "name": "light",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "src/app/theme.ts",
                 "type": "Theme",
                 "defaultValue": "{\r\n    name: 'light',\r\n    properties: {\r\n      '--background-default': '#ffffff',\r\n      '--primary-default': '#000000',\r\n      '--popup-default': '#000000',\r\n    }\r\n  }"
-            },
-            {
-                "name": "list",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/app/movies/components/movie-list/movie-list.stories.ts",
-                "type": "",
-                "defaultValue": "Template.bind({})"
             },
             {
                 "name": "LIST_DATA_SUCCESS",
@@ -2845,10 +2845,10 @@
                 "defaultValue": "'[Movies] Fetch Movies'"
             },
             {
-                "name": "ListMovie",
+                "name": "listmovie",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/components/landing/landing.stories.ts",
+                "file": "src/app/movies/components/movie-list/movie-list.stories.ts",
                 "type": "",
                 "defaultValue": "Template.bind({})"
             },
@@ -2914,7 +2914,7 @@
                 "subtype": "variable",
                 "file": "src/app/header/header.stories.ts",
                 "type": "Story<HeaderComponent>",
-                "defaultValue": "(args: HeaderComponent) => ({\r\n  component: HeaderComponent,\r\n  template: `<app-header></app-header>`,\r\n  styles: ['./header.component.scss'],\r\n  moduleMetadata: {\r\n    imports: [\r\n      RouterTestingModule.withRoutes([]),\r\n      FormsModule,\r\n       HttpClientModule, \r\n      ReactiveFormsModule,\r\n    ],\r\n    declarations: [HeaderComponent],\r\n    providers: [provideMockStore(),AuthService],\r\n  },\r\n  props: args,\r\n})"
+                "defaultValue": "(args: HeaderComponent) => ({\r\n  component: HeaderComponent,\r\n  template: `<app-header></app-header>`,\r\n  styles: ['./header.component.scss'],\r\n  moduleMetadata: {\r\n    imports: [\r\n      RouterTestingModule.withRoutes([]),\r\n      FormsModule,\r\n       HttpClientModule, \r\n      ReactiveFormsModule,\r\n    ],\r\n    declarations: [HeaderComponent],\r\n    providers: [provideMockStore(), AuthService],\r\n  },\r\n  props: args,\r\n})"
             },
             {
                 "name": "Template",
@@ -2944,17 +2944,9 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/movies/components/movie-list/movie-list.stories.ts",
-                "type": "Story<MovieListComponent>",
-                "defaultValue": "(args: MovieListComponent) => ({\r\n  component: MovieListComponent,\r\n  template: `<app-movie-list></app-movie-list>`,\r\n  styles: ['./movie-list.component.scss'],\r\n  moduleMetadata: {\r\n    imports: [\r\n      RouterTestingModule.withRoutes([]),\r\n      FormsModule,\r\n       HttpClientModule, \r\n      ReactiveFormsModule,\r\n    ],\r\n    declarations: [MovieListComponent],\r\n    providers: [provideMockStore(),AuthService],\r\n  },\r\n  props: args,\r\n})"
-            },
-            {
-                "name": "Template",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "src/app/movies/components/movie-add/movie-add.stories.ts",
                 "type": "Story<MovieAddComponent>",
-                "defaultValue": "(args: MovieAddComponent) => ({\r\n  component: MovieAddComponent,\r\n  template: `<app-movie-add></app-movie-add>`,\r\n  styles: ['./movie-add.component.scss'],\r\n  moduleMetadata: {\r\n    imports: [\r\n      RouterTestingModule.withRoutes([]),\r\n      FormsModule,\r\n       HttpClientModule, \r\n      ReactiveFormsModule,\r\n    ],\r\n    declarations: [MovieAddComponent],\r\n    providers: [provideMockStore(), MovieService],\r\n  },\r\n  props: args,\r\n})"
+                "defaultValue": "(args: MovieAddComponent) => ({\r\n  component: MovieAddComponent,\r\n  template: `<app-movie-add></app-movie-add>`,\r\n  styles: ['./movie-add.component.scss'],\r\n  moduleMetadata: {\r\n    imports: [\r\n      RouterTestingModule.withRoutes([]),\r\n      FormsModule,\r\n       HttpClientModule,\r\n      ReactiveFormsModule,\r\n    ],\r\n    declarations: [MovieAddComponent],\r\n    providers: [provideMockStore(), MovieService],\r\n  },\r\n  props: args,\r\n})"
             },
             {
                 "name": "Template",
@@ -2963,6 +2955,14 @@
                 "file": "src/app/movies/components/movie-edit/movie-edit.stories.ts",
                 "type": "Story<MovieEditComponent>",
                 "defaultValue": "(args: MovieEditComponent) => ({\r\n  component: MovieEditComponent,\r\n  template: `<app-movie-edit></app-movie-edit>`,\r\n  styles: ['./movie-edit.component.scss'],\r\n  moduleMetadata: {\r\n    imports: [\r\n      RouterTestingModule.withRoutes([]),\r\n      FormsModule,\r\n       HttpClientModule,\r\n      ReactiveFormsModule,\r\n    ],\r\n    declarations: [MovieEditComponent],\r\n    providers: [provideMockStore(), MovieService],\r\n  },\r\n  props: args,\r\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/movies/components/movie-list/movie-list.stories.ts",
+                "type": "Story<MovieListComponent>",
+                "defaultValue": "(args: MovieListComponent) => ({\r\n  component: MovieListComponent,\r\n  template: `<app-movie-list></app-movie-list>`,\r\n  styles: ['./movie-list.component.scss'],\r\n  moduleMetadata: {\r\n    imports: [\r\n      RouterTestingModule.withRoutes([]),\r\n      FormsModule,\r\n       HttpClientModule,\r\n      ReactiveFormsModule,\r\n    ],\r\n    declarations: [MovieListComponent],\r\n    providers: [provideMockStore(), AuthService],\r\n  },\r\n  props: args,\r\n})"
             },
             {
                 "name": "UPDATE_MOVIES",
@@ -3147,7 +3147,7 @@
                     "subtype": "variable",
                     "file": "src/app/movies/components/movie-add/movie-add.stories.ts",
                     "type": "Story<MovieAddComponent>",
-                    "defaultValue": "(args: MovieAddComponent) => ({\r\n  component: MovieAddComponent,\r\n  template: `<app-movie-add></app-movie-add>`,\r\n  styles: ['./movie-add.component.scss'],\r\n  moduleMetadata: {\r\n    imports: [\r\n      RouterTestingModule.withRoutes([]),\r\n      FormsModule,\r\n       HttpClientModule, \r\n      ReactiveFormsModule,\r\n    ],\r\n    declarations: [MovieAddComponent],\r\n    providers: [provideMockStore(), MovieService],\r\n  },\r\n  props: args,\r\n})"
+                    "defaultValue": "(args: MovieAddComponent) => ({\r\n  component: MovieAddComponent,\r\n  template: `<app-movie-add></app-movie-add>`,\r\n  styles: ['./movie-add.component.scss'],\r\n  moduleMetadata: {\r\n    imports: [\r\n      RouterTestingModule.withRoutes([]),\r\n      FormsModule,\r\n       HttpClientModule,\r\n      ReactiveFormsModule,\r\n    ],\r\n    declarations: [MovieAddComponent],\r\n    providers: [provideMockStore(), MovieService],\r\n  },\r\n  props: args,\r\n})"
                 }
             ],
             "src/app/theme.ts": [
@@ -3186,16 +3186,6 @@
                     "defaultValue": "(args: MovieEditComponent) => ({\r\n  component: MovieEditComponent,\r\n  template: `<app-movie-edit></app-movie-edit>`,\r\n  styles: ['./movie-edit.component.scss'],\r\n  moduleMetadata: {\r\n    imports: [\r\n      RouterTestingModule.withRoutes([]),\r\n      FormsModule,\r\n       HttpClientModule,\r\n      ReactiveFormsModule,\r\n    ],\r\n    declarations: [MovieEditComponent],\r\n    providers: [provideMockStore(), MovieService],\r\n  },\r\n  props: args,\r\n})"
                 }
             ],
-            "src/environments/environment.prod.ts": [
-                {
-                    "name": "environment",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/environments/environment.prod.ts",
-                    "type": "object",
-                    "defaultValue": "{\n  production: true\n}"
-                }
-            ],
             "src/environments/environment.ts": [
                 {
                     "name": "environment",
@@ -3204,6 +3194,16 @@
                     "file": "src/environments/environment.ts",
                     "type": "object",
                     "defaultValue": "{\n  production: false\n}"
+                }
+            ],
+            "src/environments/environment.prod.ts": [
+                {
+                    "name": "environment",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/environments/environment.prod.ts",
+                    "type": "object",
+                    "defaultValue": "{\n  production: true\n}"
                 }
             ],
             "src/app/header/header.stories.ts": [
@@ -3221,7 +3221,7 @@
                     "subtype": "variable",
                     "file": "src/app/header/header.stories.ts",
                     "type": "Story<HeaderComponent>",
-                    "defaultValue": "(args: HeaderComponent) => ({\r\n  component: HeaderComponent,\r\n  template: `<app-header></app-header>`,\r\n  styles: ['./header.component.scss'],\r\n  moduleMetadata: {\r\n    imports: [\r\n      RouterTestingModule.withRoutes([]),\r\n      FormsModule,\r\n       HttpClientModule, \r\n      ReactiveFormsModule,\r\n    ],\r\n    declarations: [HeaderComponent],\r\n    providers: [provideMockStore(),AuthService],\r\n  },\r\n  props: args,\r\n})"
+                    "defaultValue": "(args: HeaderComponent) => ({\r\n  component: HeaderComponent,\r\n  template: `<app-header></app-header>`,\r\n  styles: ['./header.component.scss'],\r\n  moduleMetadata: {\r\n    imports: [\r\n      RouterTestingModule.withRoutes([]),\r\n      FormsModule,\r\n       HttpClientModule, \r\n      ReactiveFormsModule,\r\n    ],\r\n    declarations: [HeaderComponent],\r\n    providers: [provideMockStore(), AuthService],\r\n  },\r\n  props: args,\r\n})"
                 }
             ],
             "src/app/movies/store/movie.reducer.ts": [
@@ -3244,27 +3244,9 @@
                     "defaultValue": "{\n    isAuthenticated: false,\n    user: null,\n    errorMessage: null\n  }"
                 }
             ],
-            "src/app/movies/components/movie-list/movie-list.stories.ts": [
-                {
-                    "name": "list",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/app/movies/components/movie-list/movie-list.stories.ts",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Template",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/app/movies/components/movie-list/movie-list.stories.ts",
-                    "type": "Story<MovieListComponent>",
-                    "defaultValue": "(args: MovieListComponent) => ({\r\n  component: MovieListComponent,\r\n  template: `<app-movie-list></app-movie-list>`,\r\n  styles: ['./movie-list.component.scss'],\r\n  moduleMetadata: {\r\n    imports: [\r\n      RouterTestingModule.withRoutes([]),\r\n      FormsModule,\r\n       HttpClientModule, \r\n      ReactiveFormsModule,\r\n    ],\r\n    declarations: [MovieListComponent],\r\n    providers: [provideMockStore(),AuthService],\r\n  },\r\n  props: args,\r\n})"
-                }
-            ],
             "src/app/components/landing/landing.stories.ts": [
                 {
-                    "name": "ListMovie",
+                    "name": "LandingPage",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
                     "file": "src/app/components/landing/landing.stories.ts",
@@ -3278,6 +3260,24 @@
                     "file": "src/app/components/landing/landing.stories.ts",
                     "type": "Story<LandingComponent>",
                     "defaultValue": "(args: LandingComponent) => ({\r\n  component: LandingComponent,\r\n  template: `<app-landing></app-landing>`,\r\n  styles: ['./landing.component.scss'],\r\n  moduleMetadata: {\r\n    imports: [\r\n      RouterTestingModule.withRoutes([]),\r\n      FormsModule,\r\n       HttpClientModule,\r\n      ReactiveFormsModule,\r\n    ],\r\n    declarations: [LandingComponent],\r\n    providers: [provideMockStore(), AuthService],\r\n  },\r\n  props: args,\r\n})"
+                }
+            ],
+            "src/app/movies/components/movie-list/movie-list.stories.ts": [
+                {
+                    "name": "listmovie",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/movies/components/movie-list/movie-list.stories.ts",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/movies/components/movie-list/movie-list.stories.ts",
+                    "type": "Story<MovieListComponent>",
+                    "defaultValue": "(args: MovieListComponent) => ({\r\n  component: MovieListComponent,\r\n  template: `<app-movie-list></app-movie-list>`,\r\n  styles: ['./movie-list.component.scss'],\r\n  moduleMetadata: {\r\n    imports: [\r\n      RouterTestingModule.withRoutes([]),\r\n      FormsModule,\r\n       HttpClientModule,\r\n      ReactiveFormsModule,\r\n    ],\r\n    declarations: [MovieListComponent],\r\n    providers: [provideMockStore(), AuthService],\r\n  },\r\n  props: args,\r\n})"
                 }
             ],
             "src/app/components/log-in/log-in.stories.ts": [
@@ -3533,7 +3533,7 @@
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
-                "name": "ListMovie",
+                "name": "LandingPage",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
@@ -3725,7 +3725,7 @@
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
-                "name": "list",
+                "name": "listmovie",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"

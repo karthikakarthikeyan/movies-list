@@ -33,13 +33,5 @@ const Template: Story<SignUpComponent> = (args: SignUpComponent) => ({
  
 export const Signup = Template.bind({});
 Signup.args = {
-  viewLogin : true,
+  viewsignup : true,
 };
- 
-// export const SignUp = Template.bind({});
-// SignUp.args = {
-//   viewLogin : true,
-// };
-
-
- 

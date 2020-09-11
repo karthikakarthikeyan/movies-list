@@ -22,7 +22,7 @@ const Template: Story<MovieAddComponent> = (args: MovieAddComponent) => ({
     imports: [
       RouterTestingModule.withRoutes([]),
       FormsModule,
-       HttpClientModule, 
+       HttpClientModule,
       ReactiveFormsModule,
     ],
     declarations: [MovieAddComponent],
@@ -35,11 +35,3 @@ export const addmovie = Template.bind({});
 addmovie.args = {
   addmovies : true,
 };
- 
-// export const SignUp = Template.bind({});
-// SignUp.args = {
-//   viewLogin : true,
-// };
-
-
- 

@@ -31,7 +31,7 @@ const Template: Story<MovieEditComponent> = (args: MovieEditComponent) => ({
   },
   props: args,
 });
- 
+
 export const editmovie = Template.bind({});
 editmovie.args = {
   editmovies : true,
