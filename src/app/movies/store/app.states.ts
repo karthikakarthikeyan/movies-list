@@ -1,6 +1,6 @@
 import * as auth from './../../store/reducers/auth.reducers';
 import { createFeatureSelector } from '@ngrx/store';
-import * as movie from '../../Movies/store/movie.reducer';
+import * as movie from 'src/app/movies/store/movie.reducer';
 
 export interface AppState {
   

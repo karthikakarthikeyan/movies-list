@@ -21,7 +21,7 @@ export class MovieListComponent implements OnInit {
   errorMessage: string | null;
   isloggedin = false;
 
-  constructor( private MovieService: MovieService,   private store: Store<AppState>, private authService: AuthService
+  constructor( private movieService: MovieService,   private store: Store<AppState>, private authService: AuthService
     ) { 
       this.getState = this.store.select(selectMovieState);
     }
@@ -31,14 +31,14 @@ export class MovieListComponent implements OnInit {
     if (this.authService.getToken()) {
       this.isloggedin = true;
     }
-    this.MovieService.getMovies().subscribe((data) =>
+    this.movieService.getMovies().subscribe((data) =>
       {
         this.movies = data;
       });
   }
 
   deleteProduct(id){
-    this.MovieService.delete(id).subscribe(res => {
+    this.movieService.delete(id).subscribe(res => {
          this.movies = this.movies.filter(item => item.id !== id);
     })
   }
