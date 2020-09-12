@@ -31,7 +31,7 @@ const Template: Story<LandingComponent> = (args: LandingComponent) => ({
   props: args,
 });
 
-export const LandingPage = Template.bind({});
-LandingPage.args = {
+export const ListOfMoviesAfterLogin = Template.bind({});
+ListOfMoviesAfterLogin.args = {
   movie : true,
 };

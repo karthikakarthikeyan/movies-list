@@ -19,7 +19,6 @@ export class HeaderComponent implements OnInit {
   theme = 'light';
   isAuthenticated: false;
     user = null;
-  errorMessage = null;
 
   getState: Observable<any>;
 
@@ -27,11 +26,11 @@ export class HeaderComponent implements OnInit {
     this.getState = this.store.select(selectAuthState);
    }
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.getState.subscribe((state) => {
+      console.log('state.isAuthenticated',state.isAuthenticated);
       this.isAuthenticated = state.isAuthenticated;
       this.user = state.user;
-      this.errorMessage = state.errorMessage;
     });
   }
 

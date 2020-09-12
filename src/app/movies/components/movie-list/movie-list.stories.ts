@@ -9,7 +9,7 @@ import { AuthService } from '../../../services/auth.service';
 
 
 export default {
-  title: 'Movie',
+  title: 'ListMovie',
   component: MovieListComponent,
   argTypes: {
     backgroundColor: { control: 'color' },
@@ -32,8 +32,8 @@ const Template: Story<MovieListComponent> = (args: MovieListComponent) => ({
   props: args,
 });
 
-export const listmovie = Template.bind({});
-listmovie.args = {
+export const List = Template.bind({});
+List.args = {
   listmovie : true,
 };
 

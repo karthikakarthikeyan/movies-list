@@ -8,7 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AuthService } from '../../services/auth.service';
  
 export default {
-  title: 'Header',
+  title: 'Register',
   component: SignUpComponent,
   argTypes: {
     backgroundColor: { control: 'color' },
@@ -31,7 +31,7 @@ const Template: Story<SignUpComponent> = (args: SignUpComponent) => ({
   props: args,
 });
  
-export const Signup = Template.bind({});
-Signup.args = {
+export const Default = Template.bind({});
+Default.args = {
   viewsignup : true,
 };

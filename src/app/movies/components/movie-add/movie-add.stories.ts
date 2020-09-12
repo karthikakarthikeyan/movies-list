@@ -8,7 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MovieService } from '../../services/movie.service';
  
 export default {
-  title: 'Movie',
+  title: 'AddMovie',
   component: MovieAddComponent,
   argTypes: {
     backgroundColor: { control: 'color' },
@@ -31,7 +31,7 @@ const Template: Story<MovieAddComponent> = (args: MovieAddComponent) => ({
   props: args,
 });
  
-export const addmovie = Template.bind({});
-addmovie.args = {
+export const Form = Template.bind({});
+Form.args = {
   addmovies : true,
 };

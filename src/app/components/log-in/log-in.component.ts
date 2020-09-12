@@ -22,14 +22,14 @@ export class LogInComponent implements OnInit {
   public incorrectError = false;
 
 
-  constructor(private store: Store<AppState>, private AuthService: AuthService, public themeService: ThemeService) { 
+  constructor(private store: Store<AppState>, private authService: AuthService, public themeService: ThemeService) { 
     this.getState = this.store.select(selectAuthState);
   }
 
   ngOnInit() {
-    this.getState.subscribe((state) => {
-      this.errorMessage = state.errorMessage;
-    });
+    // this.getState.subscribe((state) => {
+    //   this.errorMessage = state.errorMessage;
+    // });
   };
 
   onSubmit(): void {
@@ -37,7 +37,7 @@ export class LogInComponent implements OnInit {
       email: this.user.email,
       password: this.user.password
     };
-    this.AuthService.logIn(this.user.email,this.user.password).subscribe((response) => {
+    this.authService.logIn(this.user.email,this.user.password).subscribe((response) => {
       if(response.length >= 1){
         this.store.dispatch(new LogIn(payload));
       }else{

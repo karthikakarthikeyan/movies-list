@@ -1593,7 +1593,7 @@
         },
         {
             "name": "HeaderComponent",
-            "id": "component-HeaderComponent-38357e8890d6027ad9baac3251141d5f",
+            "id": "component-HeaderComponent-58d0049f6328b05ff0132f4b04cfef41",
             "file": "src/app/header/header.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -1613,19 +1613,11 @@
             "outputsClass": [],
             "propertiesClass": [
                 {
-                    "name": "errorMessage",
-                    "defaultValue": "null",
-                    "type": "null",
-                    "optional": false,
-                    "description": "",
-                    "line": 22
-                },
-                {
                     "name": "getState",
                     "type": "Observable<any>",
                     "optional": false,
                     "description": "",
-                    "line": 24
+                    "line": 23
                 },
                 {
                     "name": "isAuthenticated",
@@ -1647,7 +1639,7 @@
                     "type": "ThemeService",
                     "optional": false,
                     "description": "",
-                    "line": 26,
+                    "line": 25,
                     "modifierKind": [
                         114
                     ]
@@ -1668,7 +1660,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 51
+                    "line": 50
                 },
                 {
                     "name": "gotoLogin",
@@ -1676,7 +1668,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 43,
+                    "line": 42,
                     "modifierKind": [
                         114
                     ]
@@ -1687,7 +1679,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 47,
+                    "line": 46,
                     "modifierKind": [
                         114
                     ]
@@ -1698,7 +1690,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 38,
+                    "line": 37,
                     "modifierKind": [
                         114
                     ]
@@ -1709,7 +1701,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 30
+                    "line": 29
                 }
             ],
             "hostBindings": [],
@@ -1717,7 +1709,7 @@
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import { Component, OnInit } from '@angular/core';\nimport { AppState,selectAuthState } from '../store/app.states';\nimport { Observable } from 'rxjs';\nimport { Store } from '@ngrx/store';\nimport { Router } from '@angular/router';\n\nimport { LogOut } from '../store/actions/auth.actions';\nimport { AuthService } from '../services/auth.service';\nimport { ThemeService } from '../services/theme.service';\n\n\n\n@Component({\n  selector: 'app-header',\n  templateUrl: './header.component.html',\n  styleUrls: ['./header.component.scss']\n})\nexport class HeaderComponent implements OnInit {\n  theme = 'light';\n  isAuthenticated: false;\n    user = null;\n  errorMessage = null;\n\n  getState: Observable<any>;\n\n  constructor(public themeService: ThemeService, private authService: AuthService,private store: Store<AppState>,private router: Router) {\n    this.getState = this.store.select(selectAuthState);\n   }\n\n  ngOnInit(): void {\n    this.getState.subscribe((state) => {\n      this.isAuthenticated = state.isAuthenticated;\n      this.user = state.user;\n      this.errorMessage = state.errorMessage;\n    });\n  }\n\n  public logOut(): void {\n    this.store.dispatch(new LogOut());\n    this.router.navigateByUrl('/');\n  }\n\n  public gotoLogin(): void {\n    this.router.navigateByUrl('log-in');\n  }\n\n  public gotoSignUp(): void {\n    this.router.navigateByUrl('sign-up');\n  }\n\n  changeTheme(){\n    if (this.theme === 'light'){\n      this.themeService.setLightTheme();\n    } else{\n      this.themeService.setDarkTheme();\n    }\n  }\n\n}\n",
+            "sourceCode": "import { Component, OnInit } from '@angular/core';\nimport { AppState,selectAuthState } from '../store/app.states';\nimport { Observable } from 'rxjs';\nimport { Store } from '@ngrx/store';\nimport { Router } from '@angular/router';\n\nimport { LogOut } from '../store/actions/auth.actions';\nimport { AuthService } from '../services/auth.service';\nimport { ThemeService } from '../services/theme.service';\n\n\n\n@Component({\n  selector: 'app-header',\n  templateUrl: './header.component.html',\n  styleUrls: ['./header.component.scss']\n})\nexport class HeaderComponent implements OnInit {\n  theme = 'light';\n  isAuthenticated: false;\n    user = null;\n\n  getState: Observable<any>;\n\n  constructor(public themeService: ThemeService, private authService: AuthService,private store: Store<AppState>,private router: Router) {\n    this.getState = this.store.select(selectAuthState);\n   }\n\n  ngOnInit() {\n    this.getState.subscribe((state) => {\n      console.log('state.isAuthenticated',state.isAuthenticated);\n      this.isAuthenticated = state.isAuthenticated;\n      this.user = state.user;\n    });\n  }\n\n  public logOut(): void {\n    this.store.dispatch(new LogOut());\n    this.router.navigateByUrl('/');\n  }\n\n  public gotoLogin(): void {\n    this.router.navigateByUrl('log-in');\n  }\n\n  public gotoSignUp(): void {\n    this.router.navigateByUrl('sign-up');\n  }\n\n  changeTheme(){\n    if (this.theme === 'light'){\n      this.themeService.setLightTheme();\n    } else{\n      this.themeService.setDarkTheme();\n    }\n  }\n\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -1747,7 +1739,7 @@
                         "type": "Router"
                     }
                 ],
-                "line": 24,
+                "line": 23,
                 "jsdoctags": [
                     {
                         "name": "themeService",
@@ -1946,7 +1938,7 @@
         },
         {
             "name": "LogInComponent",
-            "id": "component-LogInComponent-35bd9e87216ec5f2f9251230290e7c7f",
+            "id": "component-LogInComponent-aa808ed0f4dcd1262ebcd37823e61b49",
             "file": "src/app/components/log-in/log-in.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -2024,7 +2016,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 49
+                    "line": 50
                 },
                 {
                     "name": "ngOnInit",
@@ -2040,7 +2032,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 35
+                    "line": 36
                 }
             ],
             "hostBindings": [],
@@ -2048,7 +2040,7 @@
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import { Component, OnInit } from '@angular/core';\nimport { Store } from '@ngrx/store';\nimport { Observable } from 'rxjs';\n\nimport { User } from '../../models/user';\nimport { AppState , selectAuthState } from '../../store/app.states';\nimport { LogIn } from '../../store/actions/auth.actions';\nimport { AuthService } from '../../services/auth.service';\nimport { ThemeService } from '../../services/theme.service';\n\n\n@Component({\n  selector: 'app-log-in',\n  templateUrl: './log-in.component.html',\n  styleUrls: ['./log-in.component.scss']\n})\nexport class LogInComponent implements OnInit {\n  theme = 'light';\n  user: User = new User();\n  getState: Observable<any>;\n  errorMessage: string | null;\n  public incorrectError = false;\n\n\n  constructor(private store: Store<AppState>, private AuthService: AuthService, public themeService: ThemeService) { \n    this.getState = this.store.select(selectAuthState);\n  }\n\n  ngOnInit() {\n    this.getState.subscribe((state) => {\n      this.errorMessage = state.errorMessage;\n    });\n  };\n\n  onSubmit(): void {\n    const payload = {\n      email: this.user.email,\n      password: this.user.password\n    };\n    this.AuthService.logIn(this.user.email,this.user.password).subscribe((response) => {\n      if(response.length >= 1){\n        this.store.dispatch(new LogIn(payload));\n      }else{\n        this.incorrectError = true;\n      }\n    });\n  }\n\n  changeTheme(){\n    if (this.theme === 'light'){\n      this.themeService.setLightTheme();\n    } else{\n      this.themeService.setDarkTheme();\n    }\n  }\n\n}\n",
+            "sourceCode": "import { Component, OnInit } from '@angular/core';\nimport { Store } from '@ngrx/store';\nimport { Observable } from 'rxjs';\n\nimport { User } from '../../models/user';\nimport { AppState , selectAuthState } from '../../store/app.states';\nimport { LogIn } from '../../store/actions/auth.actions';\nimport { AuthService } from '../../services/auth.service';\nimport { ThemeService } from '../../services/theme.service';\n\n\n@Component({\n  selector: 'app-log-in',\n  templateUrl: './log-in.component.html',\n  styleUrls: ['./log-in.component.scss']\n})\nexport class LogInComponent implements OnInit {\n  theme = 'light';\n  user: User = new User();\n  getState: Observable<any>;\n  errorMessage: string | null;\n  public incorrectError = false;\n\n\n  constructor(private store: Store<AppState>, private authService: AuthService, public themeService: ThemeService) { \n    this.getState = this.store.select(selectAuthState);\n  }\n\n  ngOnInit() {\n    console.log('111', this.incorrectError);\n    // this.getState.subscribe((state) => {\n    //   this.errorMessage = state.errorMessage;\n    // });\n  };\n\n  onSubmit(): void {\n    const payload = {\n      email: this.user.email,\n      password: this.user.password\n    };\n    this.authService.logIn(this.user.email,this.user.password).subscribe((response) => {\n      if(response.length >= 1){\n        this.store.dispatch(new LogIn(payload));\n      }else{\n        this.incorrectError = true;\n      }\n    });\n  }\n\n  changeTheme(){\n    if (this.theme === 'light'){\n      this.themeService.setLightTheme();\n    } else{\n      this.themeService.setDarkTheme();\n    }\n  }\n\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -2066,7 +2058,7 @@
                         "type": "Store<AppState>"
                     },
                     {
-                        "name": "AuthService",
+                        "name": "authService",
                         "type": "AuthService"
                     },
                     {
@@ -2084,7 +2076,7 @@
                         }
                     },
                     {
-                        "name": "AuthService",
+                        "name": "authService",
                         "type": "AuthService",
                         "tagName": {
                             "text": "param"
@@ -2749,14 +2741,6 @@
                 "defaultValue": "'[Movies] ADD'"
             },
             {
-                "name": "addmovie",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/app/movies/components/movie-add/movie-add.stories.ts",
-                "type": "",
-                "defaultValue": "Template.bind({})"
-            },
-            {
                 "name": "dark",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -2765,20 +2749,20 @@
                 "defaultValue": "{\r\n    name: 'dark',\r\n    properties: {\r\n      '--background-default': '#000000',\r\n      '--primary-default': '#ffffff',\r\n      '--popup-default': '#000000',\r\n    }\r\n  }"
             },
             {
-                "name": "editmovie",
+                "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/movies/components/movie-edit/movie-edit.stories.ts",
+                "file": "src/app/components/log-in/log-in.stories.ts",
                 "type": "",
                 "defaultValue": "Template.bind({})"
             },
             {
-                "name": "environment",
+                "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/environments/environment.ts",
-                "type": "object",
-                "defaultValue": "{\n  production: false\n}"
+                "file": "src/app/components/sign-up/sign-up.stories.ts",
+                "type": "",
+                "defaultValue": "Template.bind({})"
             },
             {
                 "name": "environment",
@@ -2789,10 +2773,26 @@
                 "defaultValue": "{\n  production: true\n}"
             },
             {
-                "name": "Header",
+                "name": "environment",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/header/header.stories.ts",
+                "file": "src/environments/environment.ts",
+                "type": "object",
+                "defaultValue": "{\n  production: false\n}"
+            },
+            {
+                "name": "Form",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/movies/components/movie-edit/movie-edit.stories.ts",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Form",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/movies/components/movie-add/movie-add.stories.ts",
                 "type": "",
                 "defaultValue": "Template.bind({})"
             },
@@ -2813,20 +2813,20 @@
                 "defaultValue": "{\n    isAuthenticated: false,\n    user: null,\n    errorMessage: null\n  }"
             },
             {
-                "name": "LandingPage",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/app/components/landing/landing.stories.ts",
-                "type": "",
-                "defaultValue": "Template.bind({})"
-            },
-            {
                 "name": "light",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "src/app/theme.ts",
                 "type": "Theme",
                 "defaultValue": "{\r\n    name: 'light',\r\n    properties: {\r\n      '--background-default': '#ffffff',\r\n      '--primary-default': '#000000',\r\n      '--popup-default': '#000000',\r\n    }\r\n  }"
+            },
+            {
+                "name": "List",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/movies/components/movie-list/movie-list.stories.ts",
+                "type": "",
+                "defaultValue": "Template.bind({})"
             },
             {
                 "name": "LIST_DATA_SUCCESS",
@@ -2845,18 +2845,18 @@
                 "defaultValue": "'[Movies] Fetch Movies'"
             },
             {
-                "name": "listmovie",
+                "name": "ListOfMoviesAfterLogin",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/movies/components/movie-list/movie-list.stories.ts",
+                "file": "src/app/components/landing/landing.stories.ts",
                 "type": "",
                 "defaultValue": "Template.bind({})"
             },
             {
-                "name": "Login",
+                "name": "LoggedIn",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/components/log-in/log-in.stories.ts",
+                "file": "src/app/header/header.stories.ts",
                 "type": "",
                 "defaultValue": "Template.bind({})"
             },
@@ -2901,28 +2901,12 @@
                 "defaultValue": "createFeatureSelector<AppState>('movie')"
             },
             {
-                "name": "Signup",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/app/components/sign-up/sign-up.stories.ts",
-                "type": "",
-                "defaultValue": "Template.bind({})"
-            },
-            {
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "src/app/header/header.stories.ts",
                 "type": "Story<HeaderComponent>",
                 "defaultValue": "(args: HeaderComponent) => ({\r\n  component: HeaderComponent,\r\n  template: `<app-header></app-header>`,\r\n  styles: ['./header.component.scss'],\r\n  moduleMetadata: {\r\n    imports: [\r\n      RouterTestingModule.withRoutes([]),\r\n      FormsModule,\r\n       HttpClientModule, \r\n      ReactiveFormsModule,\r\n    ],\r\n    declarations: [HeaderComponent],\r\n    providers: [provideMockStore(), AuthService],\r\n  },\r\n  props: args,\r\n})"
-            },
-            {
-                "name": "Template",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/app/components/landing/landing.stories.ts",
-                "type": "Story<LandingComponent>",
-                "defaultValue": "(args: LandingComponent) => ({\r\n  component: LandingComponent,\r\n  template: `<app-landing></app-landing>`,\r\n  styles: ['./landing.component.scss'],\r\n  moduleMetadata: {\r\n    imports: [\r\n      RouterTestingModule.withRoutes([]),\r\n      FormsModule,\r\n       HttpClientModule,\r\n      ReactiveFormsModule,\r\n    ],\r\n    declarations: [LandingComponent],\r\n    providers: [provideMockStore(), AuthService],\r\n  },\r\n  props: args,\r\n})"
             },
             {
                 "name": "Template",
@@ -2936,6 +2920,14 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "src/app/components/landing/landing.stories.ts",
+                "type": "Story<LandingComponent>",
+                "defaultValue": "(args: LandingComponent) => ({\r\n  component: LandingComponent,\r\n  template: `<app-landing></app-landing>`,\r\n  styles: ['./landing.component.scss'],\r\n  moduleMetadata: {\r\n    imports: [\r\n      RouterTestingModule.withRoutes([]),\r\n      FormsModule,\r\n       HttpClientModule,\r\n      ReactiveFormsModule,\r\n    ],\r\n    declarations: [LandingComponent],\r\n    providers: [provideMockStore(), AuthService],\r\n  },\r\n  props: args,\r\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "src/app/components/sign-up/sign-up.stories.ts",
                 "type": "Story<SignUpComponent>",
                 "defaultValue": "(args: SignUpComponent) => ({\r\n  component: SignUpComponent,\r\n  template: `<app-sign-up></app-sign-up>`,\r\n  styles: ['./sign-up.component.scss'],\r\n  moduleMetadata: {\r\n    imports: [\r\n      RouterTestingModule.withRoutes([]),\r\n      FormsModule,\r\n       HttpClientModule, \r\n      ReactiveFormsModule,\r\n    ],\r\n    declarations: [SignUpComponent],\r\n    providers: [provideMockStore(),AuthService],\r\n  },\r\n  props: args,\r\n})"
@@ -2944,9 +2936,9 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/movies/components/movie-add/movie-add.stories.ts",
-                "type": "Story<MovieAddComponent>",
-                "defaultValue": "(args: MovieAddComponent) => ({\r\n  component: MovieAddComponent,\r\n  template: `<app-movie-add></app-movie-add>`,\r\n  styles: ['./movie-add.component.scss'],\r\n  moduleMetadata: {\r\n    imports: [\r\n      RouterTestingModule.withRoutes([]),\r\n      FormsModule,\r\n       HttpClientModule,\r\n      ReactiveFormsModule,\r\n    ],\r\n    declarations: [MovieAddComponent],\r\n    providers: [provideMockStore(), MovieService],\r\n  },\r\n  props: args,\r\n})"
+                "file": "src/app/movies/components/movie-list/movie-list.stories.ts",
+                "type": "Story<MovieListComponent>",
+                "defaultValue": "(args: MovieListComponent) => ({\r\n  component: MovieListComponent,\r\n  template: `<app-movie-list></app-movie-list>`,\r\n  styles: ['./movie-list.component.scss'],\r\n  moduleMetadata: {\r\n    imports: [\r\n      RouterTestingModule.withRoutes([]),\r\n      FormsModule,\r\n       HttpClientModule,\r\n      ReactiveFormsModule,\r\n    ],\r\n    declarations: [MovieListComponent],\r\n    providers: [provideMockStore(), AuthService],\r\n  },\r\n  props: args,\r\n})"
             },
             {
                 "name": "Template",
@@ -2960,9 +2952,9 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/movies/components/movie-list/movie-list.stories.ts",
-                "type": "Story<MovieListComponent>",
-                "defaultValue": "(args: MovieListComponent) => ({\r\n  component: MovieListComponent,\r\n  template: `<app-movie-list></app-movie-list>`,\r\n  styles: ['./movie-list.component.scss'],\r\n  moduleMetadata: {\r\n    imports: [\r\n      RouterTestingModule.withRoutes([]),\r\n      FormsModule,\r\n       HttpClientModule,\r\n      ReactiveFormsModule,\r\n    ],\r\n    declarations: [MovieListComponent],\r\n    providers: [provideMockStore(), AuthService],\r\n  },\r\n  props: args,\r\n})"
+                "file": "src/app/movies/components/movie-add/movie-add.stories.ts",
+                "type": "Story<MovieAddComponent>",
+                "defaultValue": "(args: MovieAddComponent) => ({\r\n  component: MovieAddComponent,\r\n  template: `<app-movie-add></app-movie-add>`,\r\n  styles: ['./movie-add.component.scss'],\r\n  moduleMetadata: {\r\n    imports: [\r\n      RouterTestingModule.withRoutes([]),\r\n      FormsModule,\r\n       HttpClientModule,\r\n      ReactiveFormsModule,\r\n    ],\r\n    declarations: [MovieAddComponent],\r\n    providers: [provideMockStore(), MovieService],\r\n  },\r\n  props: args,\r\n})"
             },
             {
                 "name": "UPDATE_MOVIES",
@@ -3132,24 +3124,6 @@
                     "defaultValue": "'[Movies] Update Movies'"
                 }
             ],
-            "src/app/movies/components/movie-add/movie-add.stories.ts": [
-                {
-                    "name": "addmovie",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/app/movies/components/movie-add/movie-add.stories.ts",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Template",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/app/movies/components/movie-add/movie-add.stories.ts",
-                    "type": "Story<MovieAddComponent>",
-                    "defaultValue": "(args: MovieAddComponent) => ({\r\n  component: MovieAddComponent,\r\n  template: `<app-movie-add></app-movie-add>`,\r\n  styles: ['./movie-add.component.scss'],\r\n  moduleMetadata: {\r\n    imports: [\r\n      RouterTestingModule.withRoutes([]),\r\n      FormsModule,\r\n       HttpClientModule,\r\n      ReactiveFormsModule,\r\n    ],\r\n    declarations: [MovieAddComponent],\r\n    providers: [provideMockStore(), MovieService],\r\n  },\r\n  props: args,\r\n})"
-                }
-            ],
             "src/app/theme.ts": [
                 {
                     "name": "dark",
@@ -3168,9 +3142,65 @@
                     "defaultValue": "{\r\n    name: 'light',\r\n    properties: {\r\n      '--background-default': '#ffffff',\r\n      '--primary-default': '#000000',\r\n      '--popup-default': '#000000',\r\n    }\r\n  }"
                 }
             ],
+            "src/app/components/log-in/log-in.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/log-in/log-in.stories.ts",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/log-in/log-in.stories.ts",
+                    "type": "Story<LogInComponent>",
+                    "defaultValue": "(args: LogInComponent) => ({\r\n  component: LogInComponent,\r\n  template: `<app-log-in></app-log-in>`,\r\n  styles: ['./log-in.component.scss'],\r\n  moduleMetadata: {\r\n    imports: [\r\n      RouterTestingModule.withRoutes([]),\r\n      FormsModule,\r\n       HttpClientModule,\r\n      ReactiveFormsModule,\r\n    ],\r\n    declarations: [LogInComponent],\r\n    providers: [provideMockStore(), AuthService],\r\n  },\r\n  props: args,\r\n})"
+                }
+            ],
+            "src/app/components/sign-up/sign-up.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/sign-up/sign-up.stories.ts",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/sign-up/sign-up.stories.ts",
+                    "type": "Story<SignUpComponent>",
+                    "defaultValue": "(args: SignUpComponent) => ({\r\n  component: SignUpComponent,\r\n  template: `<app-sign-up></app-sign-up>`,\r\n  styles: ['./sign-up.component.scss'],\r\n  moduleMetadata: {\r\n    imports: [\r\n      RouterTestingModule.withRoutes([]),\r\n      FormsModule,\r\n       HttpClientModule, \r\n      ReactiveFormsModule,\r\n    ],\r\n    declarations: [SignUpComponent],\r\n    providers: [provideMockStore(),AuthService],\r\n  },\r\n  props: args,\r\n})"
+                }
+            ],
+            "src/environments/environment.prod.ts": [
+                {
+                    "name": "environment",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/environments/environment.prod.ts",
+                    "type": "object",
+                    "defaultValue": "{\n  production: true\n}"
+                }
+            ],
+            "src/environments/environment.ts": [
+                {
+                    "name": "environment",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/environments/environment.ts",
+                    "type": "object",
+                    "defaultValue": "{\n  production: false\n}"
+                }
+            ],
             "src/app/movies/components/movie-edit/movie-edit.stories.ts": [
                 {
-                    "name": "editmovie",
+                    "name": "Form",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
                     "file": "src/app/movies/components/movie-edit/movie-edit.stories.ts",
@@ -3186,32 +3216,12 @@
                     "defaultValue": "(args: MovieEditComponent) => ({\r\n  component: MovieEditComponent,\r\n  template: `<app-movie-edit></app-movie-edit>`,\r\n  styles: ['./movie-edit.component.scss'],\r\n  moduleMetadata: {\r\n    imports: [\r\n      RouterTestingModule.withRoutes([]),\r\n      FormsModule,\r\n       HttpClientModule,\r\n      ReactiveFormsModule,\r\n    ],\r\n    declarations: [MovieEditComponent],\r\n    providers: [provideMockStore(), MovieService],\r\n  },\r\n  props: args,\r\n})"
                 }
             ],
-            "src/environments/environment.ts": [
+            "src/app/movies/components/movie-add/movie-add.stories.ts": [
                 {
-                    "name": "environment",
+                    "name": "Form",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/environments/environment.ts",
-                    "type": "object",
-                    "defaultValue": "{\n  production: false\n}"
-                }
-            ],
-            "src/environments/environment.prod.ts": [
-                {
-                    "name": "environment",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/environments/environment.prod.ts",
-                    "type": "object",
-                    "defaultValue": "{\n  production: true\n}"
-                }
-            ],
-            "src/app/header/header.stories.ts": [
-                {
-                    "name": "Header",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/app/header/header.stories.ts",
+                    "file": "src/app/movies/components/movie-add/movie-add.stories.ts",
                     "type": "",
                     "defaultValue": "Template.bind({})"
                 },
@@ -3219,9 +3229,9 @@
                     "name": "Template",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/app/header/header.stories.ts",
-                    "type": "Story<HeaderComponent>",
-                    "defaultValue": "(args: HeaderComponent) => ({\r\n  component: HeaderComponent,\r\n  template: `<app-header></app-header>`,\r\n  styles: ['./header.component.scss'],\r\n  moduleMetadata: {\r\n    imports: [\r\n      RouterTestingModule.withRoutes([]),\r\n      FormsModule,\r\n       HttpClientModule, \r\n      ReactiveFormsModule,\r\n    ],\r\n    declarations: [HeaderComponent],\r\n    providers: [provideMockStore(), AuthService],\r\n  },\r\n  props: args,\r\n})"
+                    "file": "src/app/movies/components/movie-add/movie-add.stories.ts",
+                    "type": "Story<MovieAddComponent>",
+                    "defaultValue": "(args: MovieAddComponent) => ({\r\n  component: MovieAddComponent,\r\n  template: `<app-movie-add></app-movie-add>`,\r\n  styles: ['./movie-add.component.scss'],\r\n  moduleMetadata: {\r\n    imports: [\r\n      RouterTestingModule.withRoutes([]),\r\n      FormsModule,\r\n       HttpClientModule,\r\n      ReactiveFormsModule,\r\n    ],\r\n    declarations: [MovieAddComponent],\r\n    providers: [provideMockStore(), MovieService],\r\n  },\r\n  props: args,\r\n})"
                 }
             ],
             "src/app/movies/store/movie.reducer.ts": [
@@ -3244,27 +3254,9 @@
                     "defaultValue": "{\n    isAuthenticated: false,\n    user: null,\n    errorMessage: null\n  }"
                 }
             ],
-            "src/app/components/landing/landing.stories.ts": [
-                {
-                    "name": "LandingPage",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/app/components/landing/landing.stories.ts",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Template",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/app/components/landing/landing.stories.ts",
-                    "type": "Story<LandingComponent>",
-                    "defaultValue": "(args: LandingComponent) => ({\r\n  component: LandingComponent,\r\n  template: `<app-landing></app-landing>`,\r\n  styles: ['./landing.component.scss'],\r\n  moduleMetadata: {\r\n    imports: [\r\n      RouterTestingModule.withRoutes([]),\r\n      FormsModule,\r\n       HttpClientModule,\r\n      ReactiveFormsModule,\r\n    ],\r\n    declarations: [LandingComponent],\r\n    providers: [provideMockStore(), AuthService],\r\n  },\r\n  props: args,\r\n})"
-                }
-            ],
             "src/app/movies/components/movie-list/movie-list.stories.ts": [
                 {
-                    "name": "listmovie",
+                    "name": "List",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
                     "file": "src/app/movies/components/movie-list/movie-list.stories.ts",
@@ -3280,12 +3272,12 @@
                     "defaultValue": "(args: MovieListComponent) => ({\r\n  component: MovieListComponent,\r\n  template: `<app-movie-list></app-movie-list>`,\r\n  styles: ['./movie-list.component.scss'],\r\n  moduleMetadata: {\r\n    imports: [\r\n      RouterTestingModule.withRoutes([]),\r\n      FormsModule,\r\n       HttpClientModule,\r\n      ReactiveFormsModule,\r\n    ],\r\n    declarations: [MovieListComponent],\r\n    providers: [provideMockStore(), AuthService],\r\n  },\r\n  props: args,\r\n})"
                 }
             ],
-            "src/app/components/log-in/log-in.stories.ts": [
+            "src/app/components/landing/landing.stories.ts": [
                 {
-                    "name": "Login",
+                    "name": "ListOfMoviesAfterLogin",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/app/components/log-in/log-in.stories.ts",
+                    "file": "src/app/components/landing/landing.stories.ts",
                     "type": "",
                     "defaultValue": "Template.bind({})"
                 },
@@ -3293,9 +3285,27 @@
                     "name": "Template",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/app/components/log-in/log-in.stories.ts",
-                    "type": "Story<LogInComponent>",
-                    "defaultValue": "(args: LogInComponent) => ({\r\n  component: LogInComponent,\r\n  template: `<app-log-in></app-log-in>`,\r\n  styles: ['./log-in.component.scss'],\r\n  moduleMetadata: {\r\n    imports: [\r\n      RouterTestingModule.withRoutes([]),\r\n      FormsModule,\r\n       HttpClientModule,\r\n      ReactiveFormsModule,\r\n    ],\r\n    declarations: [LogInComponent],\r\n    providers: [provideMockStore(), AuthService],\r\n  },\r\n  props: args,\r\n})"
+                    "file": "src/app/components/landing/landing.stories.ts",
+                    "type": "Story<LandingComponent>",
+                    "defaultValue": "(args: LandingComponent) => ({\r\n  component: LandingComponent,\r\n  template: `<app-landing></app-landing>`,\r\n  styles: ['./landing.component.scss'],\r\n  moduleMetadata: {\r\n    imports: [\r\n      RouterTestingModule.withRoutes([]),\r\n      FormsModule,\r\n       HttpClientModule,\r\n      ReactiveFormsModule,\r\n    ],\r\n    declarations: [LandingComponent],\r\n    providers: [provideMockStore(), AuthService],\r\n  },\r\n  props: args,\r\n})"
+                }
+            ],
+            "src/app/header/header.stories.ts": [
+                {
+                    "name": "LoggedIn",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/header/header.stories.ts",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/header/header.stories.ts",
+                    "type": "Story<HeaderComponent>",
+                    "defaultValue": "(args: HeaderComponent) => ({\r\n  component: HeaderComponent,\r\n  template: `<app-header></app-header>`,\r\n  styles: ['./header.component.scss'],\r\n  moduleMetadata: {\r\n    imports: [\r\n      RouterTestingModule.withRoutes([]),\r\n      FormsModule,\r\n       HttpClientModule, \r\n      ReactiveFormsModule,\r\n    ],\r\n    declarations: [HeaderComponent],\r\n    providers: [provideMockStore(), AuthService],\r\n  },\r\n  props: args,\r\n})"
                 }
             ],
             "src/app/store/app.states.ts": [
@@ -3340,24 +3350,6 @@
                     "file": "src/app/movies/store/app.states.ts",
                     "type": "",
                     "defaultValue": "createFeatureSelector<AppState>('movie')"
-                }
-            ],
-            "src/app/components/sign-up/sign-up.stories.ts": [
-                {
-                    "name": "Signup",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/app/components/sign-up/sign-up.stories.ts",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Template",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/app/components/sign-up/sign-up.stories.ts",
-                    "type": "Story<SignUpComponent>",
-                    "defaultValue": "(args: SignUpComponent) => ({\r\n  component: SignUpComponent,\r\n  template: `<app-sign-up></app-sign-up>`,\r\n  styles: ['./sign-up.component.scss'],\r\n  moduleMetadata: {\r\n    imports: [\r\n      RouterTestingModule.withRoutes([]),\r\n      FormsModule,\r\n       HttpClientModule, \r\n      ReactiveFormsModule,\r\n    ],\r\n    declarations: [SignUpComponent],\r\n    providers: [provideMockStore(),AuthService],\r\n  },\r\n  props: args,\r\n})"
                 }
             ]
         },
@@ -3533,7 +3525,7 @@
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
-                "name": "LandingPage",
+                "name": "ListOfMoviesAfterLogin",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
@@ -3562,7 +3554,7 @@
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
-                "name": "Login",
+                "name": "Default",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
@@ -3591,7 +3583,7 @@
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
-                "name": "Signup",
+                "name": "Default",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
@@ -3612,7 +3604,7 @@
                 "linktype": "component",
                 "name": "HeaderComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/13",
+                "coverageCount": "0/12",
                 "status": "low"
             },
             {
@@ -3620,7 +3612,7 @@
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
-                "name": "Header",
+                "name": "LoggedIn",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
@@ -3667,7 +3659,7 @@
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
-                "name": "addmovie",
+                "name": "Form",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
@@ -3696,7 +3688,7 @@
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
-                "name": "editmovie",
+                "name": "Form",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
@@ -3725,7 +3717,7 @@
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
-                "name": "listmovie",
+                "name": "List",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"

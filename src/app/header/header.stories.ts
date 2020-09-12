@@ -31,7 +31,7 @@ const Template: Story<HeaderComponent> = (args: HeaderComponent) => ({
   props: args,
 });
 
-export const Header = Template.bind({});
-Header.args = {
-  viewHeader : true,
+export const NotLoggedIn = Template.bind({});
+NotLoggedIn.args = {
+  isAuthenticated : true,
 };

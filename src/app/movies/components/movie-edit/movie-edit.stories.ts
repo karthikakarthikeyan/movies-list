@@ -9,7 +9,7 @@ import { MovieService } from '../../services/movie.service';
 
 
 export default {
-  title: 'Movie',
+  title: 'EditMovie',
   component: MovieEditComponent,
   argTypes: {
     backgroundColor: { control: 'color' },
@@ -32,8 +32,8 @@ const Template: Story<MovieEditComponent> = (args: MovieEditComponent) => ({
   props: args,
 });
 
-export const editmovie = Template.bind({});
-editmovie.args = {
+export const Form = Template.bind({});
+Form.args = {
   editmovies : true,
 };
 

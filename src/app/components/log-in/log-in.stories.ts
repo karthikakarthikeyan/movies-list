@@ -6,7 +6,7 @@ import { LogInComponent } from './log-in.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthService } from '../../services/auth.service';
 export default {
-  title: 'Header',
+  title: 'Login',
   component: LogInComponent,
   argTypes: {
     backgroundColor: { control: 'color' },
@@ -28,7 +28,9 @@ const Template: Story<LogInComponent> = (args: LogInComponent) => ({
   },
   props: args,
 });
-export const Login = Template.bind({});
-Login.args = {
-  viewLogin : true,
+
+export const Default = Template.bind({});
+Default.args = {
+  viewLogin : false,
 };
+
